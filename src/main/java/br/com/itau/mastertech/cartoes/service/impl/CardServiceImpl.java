@@ -1,9 +1,11 @@
 package br.com.itau.mastertech.cartoes.service.impl;
 
 import br.com.itau.mastertech.cartoes.entity.CardEntity;
+import br.com.itau.mastertech.cartoes.exception.CardAlredyExistsException;
 import br.com.itau.mastertech.cartoes.exception.CardNotFoundException;
 import br.com.itau.mastertech.cartoes.repository.CardRepository;
 import br.com.itau.mastertech.cartoes.service.CardService;
+import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
@@ -29,12 +31,15 @@ public class CardServiceImpl implements CardService {
 
     @Override
     public CardEntity findByNumber(String number) {
-        return Optional.of(cardRepository.findByNumber(number)).orElseThrow(() -> new CardNotFoundException("Cartão não encontrado."));
+        return Optional.ofNullable(cardRepository.findByNumber(number)).orElseThrow(() -> new CardNotFoundException("Cartão não encontrado."));
     }
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
     public CardEntity save(CardEntity cardEntity) {
+        if(cardRepository.findByNumber(cardEntity.getNumber()) != null){
+            throw new CardAlredyExistsException("Cartão já existente");
+        }
         return cardRepository.save(cardEntity);
     }
 
