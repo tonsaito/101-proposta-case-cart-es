@@ -1,6 +1,8 @@
 # 101-proposta-case-cart-es -  Ayrton Saito
 Projeto 101-proposta-case-cart-es
 
+exercise url: https://gitlab.com/itau-spec-4/101-proposta-case-cart-es
+
 ## How to run
 
 
