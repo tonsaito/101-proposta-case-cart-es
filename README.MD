@@ -15,12 +15,12 @@ docker-compose up
 ```
 
 ## How to test
-(consul server) http://localhost:8500/
+(consul server) http://localhost:8500/ <br>
 
 
-(client-api) http://localhost:5000/swagger-ui.html#/ 
-(card-api) http://localhost:5100/swagger-ui.html#/
-(payment-api) http://localhost:5200/swagger-ui.html#/
+(client-api) http://localhost:5000/swagger-ui.html#/ <br>
+(card-api) http://localhost:5100/swagger-ui.html#/ <br>
+(payment-api) http://localhost:5200/swagger-ui.html#/ <br>
 
 ## Sample data
 created by src/main/resouces/data.sql (on each microservice)
