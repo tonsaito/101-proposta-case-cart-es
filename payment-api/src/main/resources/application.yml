@@ -1,12 +1,12 @@
 server:
-  port: 5100
-#  port: ${random.int(5100,5199)}
+  port: 5200
+#  port: ${random.int(5200,5299)}
   error:
     include-stacktrace: never
 
 spring:
   application:
-    name: card-api
+    name: payment-api
   cloud:
     consul:
       host: localhost

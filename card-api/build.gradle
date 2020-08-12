@@ -25,7 +25,6 @@ dependencies {
 
 	//integration
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-consul-all', version: '2.2.4.RELEASE'
-	//compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-ribbon', version: '1.4.7.RELEASE'
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '2.2.4.RELEASE'
 
 	//dev
