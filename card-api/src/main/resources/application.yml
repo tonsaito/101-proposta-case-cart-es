@@ -1,0 +1,12 @@
+server:
+  port: ${random.int(5100,5199)}
+  error:
+    include-stacktrace: never
+
+spring:
+  application:
+    name: card-api
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
