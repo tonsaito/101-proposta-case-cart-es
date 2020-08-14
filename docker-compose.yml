@@ -1,34 +1,51 @@
-version: '3'
+version: '3.4'
+
+x-common-variables: &common-variables
+  SERVICE_DISCOVERY_SERVER_ADDRESS: 192.168.0.12
+  SERVICE_DISCOVERY_SERVER_PORT: 8500
+  LOCAL_ADDRESS: 192.168.0.12
 
 services:
-
-  consul-agent-1: &consul-agent
+  consul:
     image: consul:latest
-    networks:
-      - consul-demo
-    command: "agent -retry-join consul-server-bootstrap -client 0.0.0.0"
-
-  consul-agent-2:
-    <<: *consul-agent
-
-  consul-agent-3:
-    <<: *consul-agent
-
-  consul-server-1: &consul-server
-    <<: *consul-agent
-    command: "agent -server -retry-join consul-server-bootstrap -client 0.0.0.0"
-
-  consul-server-2:
-    <<: *consul-server
-
-  consul-server-bootstrap:
-    <<: *consul-agent
+    command: "agent -server -ui -node=server1 -bootstrap-expect=1 -client=0.0.0.0"
     ports:
-      - "8400:8400"
       - "8500:8500"
-      - "8600:8600"
       - "8600:8600/udp"
-    command: "agent -server -bootstrap-expect 3 -ui -client 0.0.0.0"
+    networks:
+      - consul-net
+  #client-api  ###########################################################################
+  client-api-1:
+    image: tonsaito/client-api
+    environment:
+      <<: *common-variables
+      REF_PORT: 5000
+    ports:
+      - "5000:5000"
+  #card-api ###########################################################################
+  card-api-1:
+    image: tonsaito/mtc-card-api
+    environment:
+      <<: *common-variables
+      REF_PORT: 5100
+    ports:
+      - "5100:5100"
+  #payment-api ###########################################################################
+  payment-api-1:
+    image: tonsaito/mtc-payment-api
+    environment:
+      <<: *common-variables
+      REF_PORT: 5200
+    ports:
+      - "5200:5200"
+  payment-api-2:
+    image: tonsaito/mtc-payment-api
+    environment:
+      <<: *common-variables
+      REF_PORT: 5201
+    ports:
+      - "5201:5201"
 
 networks:
-  consul-demo:
+  consul-net:
+    driver: bridge

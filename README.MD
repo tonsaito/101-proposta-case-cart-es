@@ -4,23 +4,35 @@ Projeto 101-proposta-case-cart-es
 exercise url: https://gitlab.com/itau-spec-4/101-proposta-case-cart-es
 
 ## How to run
+on docker-compose.yml change the following params:
 
-#### Consul cluster
-docker-compose up
+| VARIABLE                         | VALUE                 | EXAMPLE     |
+| -------------------------------- | --------------------- | ----------- |
+| SERVICE_DISCOVERY_SERVER_ADDRESS | Your local IP ADDRESS | 192.168.0.2 |
+| LOCAL_ADDRESS                    | Your local IP ADDRESS | 192.168.0.2 |
 
-#### Each microservice
+then run:
+```sh
+$ docker-compose up
+``` 
 
-```bash
-./gradlew bootRun
-```
+##Docker compose content:
+- consul <br>
+    https://hub.docker.com/_/consul
+- docker.io/tonsaito/mtc-client-api:latest <br>
+    https://hub.docker.com/repository/docker/tonsaito/mtc-client-api
+- docker.io/tonsaito/mtc-card-api:latest <br>
+    https://hub.docker.com/repository/docker/tonsaito/mtc-card-api
+- docker.io/tonsaito/mtc-payment-api:latest <br>
+    https://hub.docker.com/repository/docker/tonsaito/mtc-payment-api
+
 
 ## How to test
 (consul server) http://localhost:8500/ <br>
 
-
 (client-api) http://localhost:5000/swagger-ui.html#/ <br>
 (card-api) http://localhost:5100/swagger-ui.html#/ <br>
-(payment-api) http://localhost:5200/swagger-ui.html#/ <br>
+(payment-api) http://localhost:5200/swagger-ui.html#/ && http://localhost:5201/swagger-ui.html#/ <br>
 
 ## Sample data
 created by src/main/resouces/data.sql (on each microservice)

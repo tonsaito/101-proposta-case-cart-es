@@ -25,7 +25,6 @@ dependencies {
 
 	//integration
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-consul-discovery', version: '2.2.4.RELEASE'
-
 	//dev
 	compile group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.4.4'
 	compileOnly 'org.projectlombok:lombok'

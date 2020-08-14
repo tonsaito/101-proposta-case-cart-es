@@ -1,6 +1,5 @@
 server:
   port: 5200
-#  port: ${random.int(5200,5299)}
   error:
     include-stacktrace: never
 
@@ -9,5 +8,8 @@ spring:
     name: payment-api
   cloud:
     consul:
-      host: localhost
+      host: 192.168.0.12
       port: 8500
+      discovery:
+        healthCheckUrl: http://192.168.0.12:5200/actuator/health
+        healthCheckInterval: 15s

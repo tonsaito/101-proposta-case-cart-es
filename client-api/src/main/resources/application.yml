@@ -1,6 +1,5 @@
 server:
-  port: 5000
-#  port: ${random.int(5000,5099)}
+  port: ${REF_PORT}
   error:
     include-stacktrace: never
 
@@ -9,5 +8,8 @@ spring:
     name: client-api
   cloud:
     consul:
-      host: localhost
-      port: 8500
+      host: ${SERVICE_DISCOVERY_SERVER_ADDRESS}
+      port: ${SERVICE_DISCOVERY_SERVER_PORT}
+      discovery:
+        healthCheckUrl: http://${LOCAL_ADDRESS}:${REF_PORT}/actuator/health
+        healthCheckInterval: 15s
