@@ -1,5 +1,5 @@
 server:
-  port: 5200
+  port: ${REF_PORT}
   error:
     include-stacktrace: never
 
@@ -8,8 +8,8 @@ spring:
     name: payment-api
   cloud:
     consul:
-      host: 192.168.0.12
-      port: 8500
+      host: ${SERVICE_DISCOVERY_SERVER_ADDRESS}
+      port: ${SERVICE_DISCOVERY_SERVER_PORT}
       discovery:
-        healthCheckUrl: http://192.168.0.12:5200/actuator/health
+        healthCheckUrl: http://${LOCAL_ADDRESS}:${REF_PORT}/actuator/health
         healthCheckInterval: 15s
