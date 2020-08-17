@@ -37,4 +37,11 @@ public class PaymentController {
         CardModel card = cardService.findById(id);
         return paymentService.findAllByCardId(id);
     }
+
+    @DeleteMapping(value = "/v1/payments/{cardId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Object> deletePaymentsByCardIdV1(@PathVariable(name = "cardId") Integer id){
+        CardModel card = cardService.findById(id);
+        paymentService.deleteByCardId(card.getId());
+        return ResponseEntity.ok().build();
+    }
 }

@@ -8,7 +8,7 @@ VOLUME /tmp
 ARG JAR_FILE=build/libs/*.jar
 
 COPY ${JAR_FILE} /app/app.jar
-COPY /build/resources/main/application.yml /conf/application.yml
+COPY /build/resources/main/application-stage.yml /conf/application-stage.yml
 
 
-ENTRYPOINT ["java","-jar","-Dspring.config.location=/conf/application.yml","app/app.jar"]
+ENTRYPOINT ["java","-jar","-Dspring.config.location=/conf/application-stage.yml","app/app.jar"]

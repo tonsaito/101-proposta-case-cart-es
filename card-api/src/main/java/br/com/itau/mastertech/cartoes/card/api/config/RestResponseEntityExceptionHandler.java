@@ -2,10 +2,7 @@ package br.com.itau.mastertech.cartoes.card.api.config;
 
 import java.time.LocalDateTime;
 
-import br.com.itau.mastertech.cartoes.card.api.exception.CardAlredyExistsException;
-import br.com.itau.mastertech.cartoes.card.api.exception.CardInactiveException;
-import br.com.itau.mastertech.cartoes.card.api.exception.CardNotFoundException;
-import br.com.itau.mastertech.cartoes.card.api.exception.ClientNotFoundException;
+import br.com.itau.mastertech.cartoes.card.api.exception.*;
 import br.com.itau.mastertech.cartoes.card.api.model.ExceptionModel;
 import feign.FeignException;
 import org.springframework.http.HttpStatus;
@@ -30,6 +27,13 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     protected ResponseEntity<Object> handleUnprocessableEntity(
             RuntimeException ex, WebRequest request) {
         HttpStatus httpStatus = HttpStatus.UNPROCESSABLE_ENTITY;
+        return ResponseEntity.status(httpStatus).body(getExceptionModel(httpStatus, ex, request));
+    }
+
+    @ExceptionHandler(value = {ServiceNotAvailableException.class })
+    protected ResponseEntity<Object> handleInternalServerErrorEntity(
+            RuntimeException ex, WebRequest request) {
+        HttpStatus httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
         return ResponseEntity.status(httpStatus).body(getExceptionModel(httpStatus, ex, request));
     }
 

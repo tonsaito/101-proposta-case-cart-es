@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: invoice-api
+  profiles:
+    active: ${PROFILES_ACTIVE:dev}

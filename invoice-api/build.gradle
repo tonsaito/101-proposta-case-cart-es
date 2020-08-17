@@ -1,0 +1,49 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.2.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'br.com.itau.mastertech.cartoes.invoice.api'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	//integration
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-consul-all', version: '2.2.4.RELEASE'
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '2.2.4.RELEASE'
+
+	//circuit breaker
+	compile group: 'io.github.resilience4j', name: 'resilience4j-spring-boot2', version: '1.5.0'
+	compile group: 'io.github.resilience4j', name: 'resilience4j-circuitbreaker', version: '1.5.0'
+	compile group: 'io.github.resilience4j', name: 'resilience4j-ratelimiter', version: '1.5.0'
+	compile group: 'io.github.resilience4j', name: 'resilience4j-feign', version: '1.5.0'
+
+	//dev
+	compile group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.4.4'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}

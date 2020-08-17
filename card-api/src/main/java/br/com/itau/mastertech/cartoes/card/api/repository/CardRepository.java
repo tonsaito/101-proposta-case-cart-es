@@ -10,4 +10,5 @@ public interface CardRepository extends CrudRepository<CardEntity, Integer> {
 
     @Query("SELECT c FROM CardEntity c WHERE c.number = ?1")
     CardEntity findByNumber(String number);
+
 }

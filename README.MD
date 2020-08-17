@@ -16,7 +16,7 @@ then run:
 $ docker-compose up
 ``` 
 
-##Docker compose content:
+## Docker compose content:
 - consul <br>
     https://hub.docker.com/_/consul
 - docker.io/tonsaito/mtc-client-api:latest <br>
@@ -25,6 +25,10 @@ $ docker-compose up
     https://hub.docker.com/repository/docker/tonsaito/mtc-card-api
 - docker.io/tonsaito/mtc-payment-api:latest <br>
     https://hub.docker.com/repository/docker/tonsaito/mtc-payment-api
+
+### Note
+Since all microservices are using H2 embbeded database, doesn't make sense
+to run more than 1 instance of client and card services, excepto for payment service.
 
 
 ## How to test

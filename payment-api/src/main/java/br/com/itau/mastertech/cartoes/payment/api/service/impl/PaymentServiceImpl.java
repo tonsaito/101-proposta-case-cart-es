@@ -5,6 +5,7 @@ import br.com.itau.mastertech.cartoes.payment.api.entity.PaymentEntity;
 import br.com.itau.mastertech.cartoes.payment.api.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,5 +23,11 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public PaymentEntity save(PaymentEntity paymentEntity) {
         return paymentRepository.save(paymentEntity);
+    }
+
+    @Override
+    @Transactional
+    public void deleteByCardId(Integer cardId) {
+        paymentRepository.deleteByCardId(cardId);
     }
 }

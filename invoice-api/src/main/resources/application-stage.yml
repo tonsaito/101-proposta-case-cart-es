@@ -1,0 +1,16 @@
+server:
+  port: ${REF_PORT}
+  error:
+    include-stacktrace: never
+
+
+spring:
+  application:
+    name: invoice-api
+  cloud:
+    consul:
+      host: ${SERVICE_DISCOVERY_SERVER_ADDRESS}
+      port: ${SERVICE_DISCOVERY_SERVER_PORT}
+      discovery:
+        healthCheckUrl: http://${LOCAL_ADDRESS}:${REF_PORT}/actuator/health
+        healthCheckInterval: 15s

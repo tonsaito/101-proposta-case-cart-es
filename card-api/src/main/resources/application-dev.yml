@@ -1,0 +1,10 @@
+server:
+  port: 5100
+  error:
+    include-stacktrace: never
+
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
