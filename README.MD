@@ -28,7 +28,7 @@ $ docker-compose up
 
 ### Note
 Since all microservices are using H2 embbeded database, doesn't make sense
-to run more than 1 instance of client and card services, excepto for payment service.
+to run more than 1 instance of client and card services, except for payment service.
 
 
 ## How to test

@@ -19,6 +19,7 @@ services:
     environment:
       <<: *common-variables
       PORT: 8888
+      CONFIGURATION_SERVICE_REPOSITORY: https://github.com/tonsaito/configuration-repo.git
     ports:
       - "8888:8888"
     depends_on:
