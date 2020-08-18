@@ -24,8 +24,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
+	//configuration
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-config', version: '2.2.4.RELEASE'
+
 	//integration
-	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-consul-all', version: '2.2.4.RELEASE'
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-consul-discovery', version: '2.2.4.RELEASE'
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '2.2.4.RELEASE'
 
 	//circuit breaker

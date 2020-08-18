@@ -1,0 +1,38 @@
+version: '3.4'
+
+x-common-variables: &common-variables
+  SERVICE_DISCOVERY_SERVER_ADDRESS: 192.168.0.12
+  SERVICE_DISCOVERY_SERVER_PORT: 8500
+  LOCAL_ADDRESS: 192.168.0.12
+
+services:
+  consul-service:
+    image: consul:latest
+    command: "agent -server -ui -node=serverLocal -bootstrap-expect=1 -dev -client=0.0.0.0"
+    ports:
+      - "8500:8500"
+      - "8600:8600/udp"
+    networks:
+      - consul-net-local
+  configuration-service:
+    image: tonsaito/mtc-configuration-service:latest
+    environment:
+      <<: *common-variables
+      PORT: 8888
+    ports:
+      - "8888:8888"
+    depends_on:
+      - consul-service
+  gateway-service:
+    image: tonsaito/mtc-gateway-service:latest
+    environment:
+      <<: *common-variables
+      PORT: 9080
+    ports:
+      - "9080:9080"
+    depends_on:
+      - configuration-service
+
+networks:
+  consul-net-local:
+    driver: bridge

@@ -1,0 +1,23 @@
+server:
+  port: ${PORT:9080}
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+        routes:
+          - id: localhost-docker
+            uri: localhost:9080
+
+logging.level.com.netflix: DEBUG
+
+management:
+  security:
+    enabled: false

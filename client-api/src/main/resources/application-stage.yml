@@ -7,6 +7,8 @@ server:
 spring:
   application:
     name: client-api
+  profiles:
+    active: stage
   cloud:
     consul:
       host: ${SERVICE_DISCOVERY_SERVER_ADDRESS}

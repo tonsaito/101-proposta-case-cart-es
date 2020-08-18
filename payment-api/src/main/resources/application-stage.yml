@@ -7,8 +7,6 @@ server:
 spring:
   application:
     name: payment-api
-  application:
-    name: payment-api
   cloud:
     consul:
       host: ${SERVICE_DISCOVERY_SERVER_ADDRESS}

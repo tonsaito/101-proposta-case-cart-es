@@ -1,5 +1,5 @@
 server:
-  port: 5000
+  port: 5001
   error:
     include-stacktrace: never
 
@@ -8,3 +8,4 @@ spring:
     consul:
       host: localhost
       port: 8500
+      failFast: false
