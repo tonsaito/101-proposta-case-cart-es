@@ -1,8 +1,8 @@
 package br.com.itau.mastertech.cartoes.card.api.controller;
 
-import br.com.itau.mastertech.cartoes.card.api.model.ClientModel;
 import br.com.itau.mastertech.cartoes.card.api.entity.CardEntity;
 import br.com.itau.mastertech.cartoes.card.api.model.CardModel;
+import br.com.itau.mastertech.cartoes.card.api.model.ClientModel;
 import br.com.itau.mastertech.cartoes.card.api.model.StatusModel;
 import br.com.itau.mastertech.cartoes.card.api.service.CardService;
 import br.com.itau.mastertech.cartoes.card.api.service.ClientService;

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 
-public class ClientClientConfiguration {
+public class ClientClientConfig {
 
     @Autowired
     private OAuth2ClientContext clientContext;

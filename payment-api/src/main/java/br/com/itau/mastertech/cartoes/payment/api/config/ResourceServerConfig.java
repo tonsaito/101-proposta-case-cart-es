@@ -1,4 +1,4 @@
-package br.com.itau.mastertech.cartoes.card.api.config;
+package br.com.itau.mastertech.cartoes.payment.api.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

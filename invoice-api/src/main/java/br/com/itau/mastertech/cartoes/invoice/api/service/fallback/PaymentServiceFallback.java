@@ -8,6 +8,14 @@ import br.com.itau.mastertech.cartoes.invoice.api.service.PaymentService;
 import java.util.List;
 
 public class PaymentServiceFallback implements PaymentService {
+
+    private Exception exception;
+
+    public PaymentServiceFallback(Exception e){
+        this.exception = e;
+
+    }
+
     @Override
     public List<PaymentModel> getPaymentsByCardId(Integer cardId) {
         throw new ServiceNotAvailableException("Service not available");

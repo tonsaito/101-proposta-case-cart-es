@@ -4,6 +4,12 @@ spring:
   application:
     name: configuration-service
   cloud:
+    consul:
+      host: 192.168.0.12
+      port: ${SERVICE_DISCOVERY_SERVER_PORT:8500}
+      discovery:
+        healthCheckUrl: http://192.168.0.12:${PORT:8888}/actuator/health
+        healthCheckInterval: 15s
     config:
       server:
         git:

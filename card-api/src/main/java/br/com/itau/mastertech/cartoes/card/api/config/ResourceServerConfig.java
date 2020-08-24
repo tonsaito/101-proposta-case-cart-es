@@ -1,4 +1,4 @@
-package br.com.itau.mastertech.cartoes.client.api.config;
+package br.com.itau.mastertech.cartoes.card.api.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,6 +12,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().anyRequest().authenticated();
+        http.authorizeRequests()
+                .antMatchers("/actuator/**").permitAll()
+                .anyRequest().authenticated();
     }
 }

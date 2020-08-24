@@ -1,8 +1,8 @@
 package br.com.itau.mastertech.cartoes.client.api.service.impl;
 
+import br.com.itau.mastertech.cartoes.client.api.entity.ClientEntity;
 import br.com.itau.mastertech.cartoes.client.api.exception.ClientNotFoundException;
 import br.com.itau.mastertech.cartoes.client.api.repository.ClientRepository;
-import br.com.itau.mastertech.cartoes.client.api.entity.ClientEntity;
 import br.com.itau.mastertech.cartoes.client.api.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

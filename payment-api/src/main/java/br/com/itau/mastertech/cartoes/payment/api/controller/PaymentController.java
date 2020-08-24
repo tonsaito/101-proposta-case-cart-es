@@ -1,8 +1,8 @@
 package br.com.itau.mastertech.cartoes.payment.api.controller;
 
+import br.com.itau.mastertech.cartoes.payment.api.entity.PaymentEntity;
 import br.com.itau.mastertech.cartoes.payment.api.model.CardModel;
 import br.com.itau.mastertech.cartoes.payment.api.model.PaymentModel;
-import br.com.itau.mastertech.cartoes.payment.api.entity.PaymentEntity;
 import br.com.itau.mastertech.cartoes.payment.api.service.CardService;
 import br.com.itau.mastertech.cartoes.payment.api.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;

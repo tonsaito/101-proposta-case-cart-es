@@ -1,7 +1,5 @@
 package br.com.itau.mastertech.cartoes.client.api.config;
 
-import java.time.LocalDateTime;
-
 import br.com.itau.mastertech.cartoes.client.api.exception.ClientNotFoundException;
 import br.com.itau.mastertech.cartoes.client.api.model.ExceptionModel;
 import org.springframework.http.HttpStatus;
@@ -11,6 +9,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+import java.time.LocalDateTime;
 
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {

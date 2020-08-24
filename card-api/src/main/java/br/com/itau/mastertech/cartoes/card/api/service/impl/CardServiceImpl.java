@@ -1,11 +1,11 @@
 package br.com.itau.mastertech.cartoes.card.api.service.impl;
 
+import br.com.itau.mastertech.cartoes.card.api.entity.CardEntity;
 import br.com.itau.mastertech.cartoes.card.api.exception.CardAlredyExistsException;
 import br.com.itau.mastertech.cartoes.card.api.exception.CardInactiveException;
 import br.com.itau.mastertech.cartoes.card.api.exception.CardNotFoundException;
 import br.com.itau.mastertech.cartoes.card.api.repository.CardRepository;
 import br.com.itau.mastertech.cartoes.card.api.service.CardService;
-import br.com.itau.mastertech.cartoes.card.api.entity.CardEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;

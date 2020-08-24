@@ -1,8 +1,5 @@
 package br.com.itau.mastertech.cartoes.payment.api.config;
 
-import java.io.IOException;
-import java.time.LocalDateTime;
-
 import br.com.itau.mastertech.cartoes.payment.api.model.ExceptionModel;
 import feign.FeignException;
 import org.springframework.http.HttpStatus;
@@ -12,10 +9,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import org.yaml.snakeyaml.reader.StreamReader;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
+import java.time.LocalDateTime;
 
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {

@@ -1,8 +1,5 @@
 package br.com.itau.mastertech.cartoes.card.api.config;
 
-import java.time.LocalDateTime;
-
-import br.com.itau.mastertech.cartoes.card.api.exception.*;
 import br.com.itau.mastertech.cartoes.card.api.model.ExceptionModel;
 import feign.FeignException;
 import org.springframework.http.HttpStatus;
@@ -12,6 +9,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+import java.time.LocalDateTime;
 
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {

@@ -6,6 +6,14 @@ import br.com.itau.mastertech.cartoes.invoice.api.model.StatusModel;
 import br.com.itau.mastertech.cartoes.invoice.api.service.CardService;
 
 public class CardServiceFallback implements CardService {
+
+    private Exception exception;
+
+    public CardServiceFallback(Exception e){
+        this.exception = e;
+
+    }
+
     @Override
     public CardModel findById(Integer id) {
         throw new ServiceNotAvailableException("Service not available");

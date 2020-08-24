@@ -12,7 +12,7 @@ spring:
       port: ${SERVICE_DISCOVERY_SERVER_PORT}
       discovery:
         prefer-ip-address: true
-        healthCheckUrl: http://${LOCAL_ADDRESS}:${REF_PORT}/actuator/health
+        healthCheckUrl: http://${LOCAL_ADDRESS}:${PORT:9080}/actuator/health
         healthCheckInterval: 15s
     gateway:
       discovery:
@@ -21,6 +21,11 @@ spring:
         routes:
           - id: localhost-docker
             uri: ${LOCAL_ADDRESS}:${PORT:9080}
+  sleuth:
+    sampler:
+      probability:1
+  .zipkin:
+    base-url: http://${ZIPKIN_ADDRESS:localhost}:${ZIPKIN_PORT:9411}/
 
 logging.level.com.netflix: DEBUG
 
